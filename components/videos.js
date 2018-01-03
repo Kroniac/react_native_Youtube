@@ -8,7 +8,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import videoData2 from '../assets/videoData.json';
 
 const videos = props => {
   intToString = value => {
@@ -70,32 +69,36 @@ const videos = props => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={{ uri: props.videoData.snippet.thumbnails.medium.url }}
-        style={{ height: 200 }}
-      />
-      <View style={styles.description}>
+      <TouchableOpacity>
         <Image
-          source={{
-            uri:
-              'http://e-cdn-images.deezer.com/images/artist/b2af40d06fb0ccaf3ebee179f61cd80d/200x200-000000-80-0-0.jpg'
-          }}
-          style={{ width: 50, height: 50, borderRadius: 25 }}
+          source={{ uri: props.videoData.snippet.thumbnails.medium.url }}
+          style={{ height: 200 }}
         />
-        <View style={styles.videoStats}>
-          <Text style={styles.videoTitle}>{props.videoData.snippet.title}</Text>
-          <Text style={styles.videoStat}>
-            {props.videoData.snippet.channelTitle +
-              ' · ' +
-              intToString(props.videoData.statistics.viewCount) +
-              ' · ' +
-              convertTime(props.videoData.snippet.publishedAt)}
-          </Text>
+        <View style={styles.description}>
+          <Image
+            source={{
+              uri:
+                'http://e-cdn-images.deezer.com/images/artist/b2af40d06fb0ccaf3ebee179f61cd80d/200x200-000000-80-0-0.jpg'
+            }}
+            style={{ width: 50, height: 50, borderRadius: 25 }}
+          />
+          <View style={styles.videoStats}>
+            <Text style={styles.videoTitle}>
+              {props.videoData.snippet.title}
+            </Text>
+            <Text style={styles.videoStat}>
+              {props.videoData.snippet.channelTitle +
+                ' · ' +
+                intToString(props.videoData.statistics.viewCount) +
+                ' · ' +
+                convertTime(props.videoData.snippet.publishedAt)}
+            </Text>
+          </View>
+          <TouchableOpacity style={{ paddingTop: 15 }}>
+            <Icon name="more-vert" size={20} color="#999999" />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={{ paddingTop: 15 }}>
-          <Icon name="more-vert" size={20} color="#999999" />
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

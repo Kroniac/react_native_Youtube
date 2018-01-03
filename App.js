@@ -16,6 +16,9 @@ class App extends Component {
         <View style={styles.navBar}>
           <Image source={youtubeImage} style={{ width: 98, height: 22 }} />
           <View style={styles.rightNav}>
+          <TouchableOpacity>
+              <Icon style={styles.navItem} name="videocam" size={25} />
+            </TouchableOpacity>
             <TouchableOpacity>
               <Icon style={styles.navItem} name="search" size={25} />
             </TouchableOpacity>
@@ -27,7 +30,28 @@ class App extends Component {
           <View style={styles.body}>
           
           </View>
-          <View style={styles.tabBar}></View>
+          <View style={styles.tabBar}>
+          <TouchableOpacity style={styles.tabItem}>
+          <Icon name="home" size={24}/>
+          <Text style={styles.tabText}>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+          <Icon name="whatshot" size={24}/>
+          <Text style={styles.tabText}>Trending</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+          <Icon name="subscriptions" size={24}/>
+          <Text style={styles.tabText}>subscriptions</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+          <Icon name="notifications" size={24}/>
+          <Text style={styles.tabText}>Activity</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+          <Icon name="folder" size={24}/>
+          <Text style={styles.tabText}>Library</Text>
+          </TouchableOpacity>
+          </View>
         
       </View>
     );
@@ -58,9 +82,20 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     backgroundColor: 'white',
-    height:60,
+    height:50,
     borderTopWidth: 0.5,
-    borderColor: '#ccc'
+    borderColor: '#e5e5e5',
+    flexDirection: 'row',
+    justifyContent : 'space-around'
+  },
+  tabItem:{
+    alignItems:'center',
+    justifyContent: 'center'
+  },
+  tabText: {
+    fontSize: 10,
+    color : '#3c3c3c',
+    paddingTop: 5
   }
 });
 

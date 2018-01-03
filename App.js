@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image } from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import youtubeImage from './assets/youtube_logo.png';
 class App extends Component {
@@ -9,10 +16,19 @@ class App extends Component {
         <View style={styles.navBar}>
           <Image source={youtubeImage} style={{ width: 98, height: 22 }} />
           <View style={styles.rightNav}>
-            <Icon style={styles.navItem} name="search" size={25} />
-            <Icon style={styles.navItem} name="account-circle" size={25} />
+            <TouchableOpacity>
+              <Icon style={styles.navItem} name="search" size={25} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Icon style={styles.navItem} name="account-circle" size={25} />
+            </TouchableOpacity>
           </View>
-        </View>
+          </View>
+          <View style={styles.body}>
+          
+          </View>
+          <View style={styles.tabBar}></View>
+        
       </View>
     );
   }
@@ -34,8 +50,17 @@ const styles = StyleSheet.create({
   rightNav: {
     flexDirection: 'row'
   },
-  navItem:{
-    marginLeft:25
+  navItem: {
+    marginLeft: 25
+  },
+  body: {
+    flex:1
+  },
+  tabBar: {
+    backgroundColor: 'white',
+    height:60,
+    borderTopWidth: 0.5,
+    borderColor: '#ccc'
   }
 });
 
